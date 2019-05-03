@@ -3,11 +3,11 @@ from itertools import count
 
 
 
-class canteen:
+class canteen_content:
 
     _ids = count (0)
 
-    def __init__(self, name, stock, image):
+    def __init__(self, name, image, stock, sold):
         self.id = next(self._ids)
         self.food_name = name
         self.food_image = image
@@ -17,9 +17,9 @@ class canteen:
 
 
 contents = [
-    canteen_content("sushi rolls", "image", 8 ),
-    canteen_content("hot dog and chips", "image", 12 ),
-    canteen_content("ham sandwhich", "image", 3)
+    canteen_content("Sushi Rolls", "image", 5, 0 ),
+    canteen_content("Hot Dog and Chips", "image", 12, 0 ),
+    canteen_content("Ham Sammy", "image", 4, 0)
 ]
 
 
