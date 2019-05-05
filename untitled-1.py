@@ -24,6 +24,17 @@ contents = [
 
 
 
+@route('/picture/<filename>')
+def saved_picture (filename):
+    return static_file(filename, root='./Images')
+
+
+#index page
+@route("/")
+@view ("index")
+def index():
+
+    pass
 
 
 
