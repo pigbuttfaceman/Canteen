@@ -38,4 +38,5 @@ ver 2.1 = Add values to the contents of the buying page (stock, cost)
 ver 3.0 = Code the code so that when you press the buy button the stock will go down and and the cart price will go up, with a message that gets sent to the user saying it was successful or not
 ver 4.0 = +stock page, set up the contents with their stock and add an add stock insert tab that allows the user to stock up as much as they want
 ver 5.0 = add a credit card details page? and a reciept page
+ver 6.0 = Vegan page?
 ver 6.0 = possiably for extra, make a page where you can add a food to the store
