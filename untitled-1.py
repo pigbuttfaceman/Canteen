@@ -1,4 +1,4 @@
-from bottle import run, route, view, get, post, request
+from bottle import run, route, view, get, post, request, static_file
 from itertools import count
 
 
@@ -17,9 +17,9 @@ class canteen_content:
 
 
 contents = [
-    canteen_content("Sushi Rolls", "image", 5, 0 ),
-    canteen_content("Hot Dog and Chips", "image", 12, 0 ),
-    canteen_content("Ham Sammy", "image", 4, 0)
+    canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0 ),
+    canteen_content("Hot Dog and Chips", "hotdog.jpg", 12, 0 ),
+    canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0)
 ]
 
 
@@ -31,6 +31,18 @@ contents = [
 def index():
 
     pass
+
+
+@route("/order") 
+@view("order") 
+def order(): 
+    data = dict (contents_list = canteen_content) 
+    return data 
+
+
+@route('/picture/<filename>')
+def saved_picture (filename):
+    return static_file(filename, root='./images')
 
 
 

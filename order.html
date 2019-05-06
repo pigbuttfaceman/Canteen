@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    %include('shared/header.html')
+    %include('shared/nav_bar.html')
+	
+
+    <body class = "grey">
+	<div>
+	
+				% for canteen_content in contents_list:
+				<div class="col s6 row center black container">
+					<h2 class="header yellow-text ">{{canteen_content.food_name}}</h2>
+					<div class="card horizontal blue ">
+						<div class="card-image z-depth-1">
+					
+						</div>
+					<div class="card-stacked">
+					<img src="/picture/{{canteen_content.contents_image}}" style = "width:500px; height:400px">
+					
+						<div class="card-content red accent-3 black-text">
+				% end
