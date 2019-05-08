@@ -36,7 +36,7 @@ def index():
 @route("/order") 
 @view("order") 
 def order(): 
-    data = dict (contents_list = canteen_content) 
+    data = dict (contents_list = contents) 
     return data 
 
 

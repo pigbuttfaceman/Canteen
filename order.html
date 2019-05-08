@@ -5,17 +5,34 @@
 	
 
     <body class = "grey">
-	<div>
+	
+		<div>
 	
 				% for canteen_content in contents_list:
-				<div class="col s6 row center black container">
-					<h2 class="header yellow-text ">{{canteen_content.food_name}}</h2>
+				<div class="col s6 row center blue container">
+					<h2 class="header black-text red ">{{canteen_content.food_name}}</h2>
 					<div class="card horizontal blue ">
-						<div class="card-image z-depth-1">
+						
 					
 						</div>
 					<div class="card-stacked">
-					<img src="/picture/{{canteen_content.contents_image}}" style = "width:500px; height:400px">
+					<img src="/picture/{{canteen_content.food_image}}" style = "width:500px; height:400px">
 					
-						<div class="card-content red accent-3 black-text">
-				% end
+						<div class="card-content red black-text">
+						<h5>Stock = {{canteen_content.food_stock}}</h5>
+						%if canteen_content.food_stock !=0 or canteen_content.food_stock < 0:
+							<a href = "/buy_success/{{canteen_content.id}}"  class="waves-effect waves-light btn-small black">Buy Now!</a>
+						%else:
+							<p>OUT OF STOCK!</p>
+						%end
+				
+						</div>
+					
+					<h5 class = "white-text">Sold = {{canteen_content.food_sold}}</h5>
+					</div>
+					</div>
+					
+				</div>
+				
+				%end
+				
