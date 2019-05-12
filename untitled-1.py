@@ -7,19 +7,20 @@ class canteen_content:
 
     _ids = count (0)
 
-    def __init__(self, name, image, stock, sold):
+    def __init__(self, name, image, stock, sold, cost):
         self.id = next(self._ids)
         self.food_name = name
         self.food_image = image
         self.food_stock = stock
         self.food_sold = sold
+        self.food_cost = cost
 
 
 
 contents = [
-    canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0 ),
-    canteen_content("Hot Dog and Chips", "hotdog.jpg", 12, 0 ),
-    canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0)
+    canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0, 5 ),
+    canteen_content("Hot Dog and Chips", "hotdog.jpg", 12, 0, 3 ),
+    canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0, 4)
 ]
 
 

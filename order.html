@@ -19,9 +19,10 @@
 					<img src="/picture/{{canteen_content.food_image}}" style = "width:500px; height:400px">
 					
 						<div class="card-content red black-text">
+						<h5>Cost = ${{canteen_content.food_cost}}</h5>
 						<h5>Stock = {{canteen_content.food_stock}}</h5>
 						%if canteen_content.food_stock !=0 or canteen_content.food_stock < 0:
-							<a href = "/buy_success/{{canteen_content.id}}"  class="waves-effect waves-light btn-small black">Buy Now!</a>
+							<a href = "/buy_success/{{canteen_content.id}}"  class="waves-effect waves-light btn-small black">Order Now!</a>
 						%else:
 							<p>OUT OF STOCK!</p>
 						%end
