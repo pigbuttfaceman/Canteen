@@ -11,9 +11,9 @@ I am going to create a canteen website that allows the user to buy multiple good
 Program Details:
 
 The school canteen has the following food:  
-Sushi Roll pack - Starting with 5  
-Hot dog and Chips - starting with 12  
-Ham and Cheese Sandwiches - 4 in stock  
+Sushi Roll pack - Starting with 5 - $5
+Hot dog and Chips - starting with 12 - $3
+Ham and Cheese Sandwiches - 4 in stock - $4
 
 The user should be able to sell a food item one at a time, reducing the stock by one.   
 The interface should notify the user if the food has been sold successfully.   
