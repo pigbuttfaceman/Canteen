@@ -33,9 +33,8 @@ Broken down versions:
 ver 1.0 = Create a Python server
 ver 1.1 = Create the index page in notepad++ (colour scheme)
 ver 1.2 = Create header and the nav bar
-ver 2.0 = Create a buy page that will contain the food set out in orderly fashion (hopefully with a picture)
-ver 3.0 = Add values to the contents of the buying page (stock, cost)
-ver 4.0 = Code the code so that when you press the buy button the stock will go down and and the cart price will go up, with a message that gets sent to the user saying it was successful or not
-ver 5.0 = +stock page, set up the contents with their stock and add an add stock insert tab that allows the user to stock up as much as they want
-ver 6.0 = add a credit card details page? and a reciept page
-ver 7.0 = possiably for extra, make a page where you can add a food
+ver 2.0 = Create a buy page that will contain the food set out in orderly fashion (hopefully with a picture, and add values to the contents of the buying page (stock, cost)
+ver 3.0 = Code the code so that when you press the buy button the stock will go down and and the cart price will go up, with a message that gets sent to the user saying it was successful or not
+ver 4.0 = +stock page, set up the contents with their stock and add an add stock insert tab that allows the user to stock up as much as they want
+ver 5.0 = add a credit card details page? and a reciept page
+ver 6.0 = possiably for extra, make a page where you can add a food
