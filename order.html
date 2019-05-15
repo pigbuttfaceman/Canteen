@@ -7,7 +7,7 @@
     <body class = "grey">
 	
 		<div>
-	
+				
 				% for canteen_content in contents_list:
 				<div class="col s6 row center blue container">
 					<h2 class="header black-text red ">{{canteen_content.food_name}}</h2>
@@ -32,8 +32,10 @@
 					<h5 class = "white-text">Sold = {{canteen_content.food_sold}}</h5>
 					</div>
 					</div>
-					
+				<div class = "black">
+				<h5 class = "white-text">Cart = ${{canteen_content.food_cart}}</h5>
 				</div>
-				
+				</div>
+							
 				%end
 				
