@@ -1,0 +1,29 @@
+<!DOCTYPE>
+	<html>
+	%include('shared/header.html')
+    %include('shared/nav_bar.html')
+	
+	<body class = "grey">
+	<table  class = "striped">
+			<thead>
+			  <tr>
+				  <th>Name</th>
+				  <th>Stock</th>
+				  <th>Sold</th>
+				  <th>Cost</th>
+			  </tr>
+			</thead>
+	% for canteen_content in contents_list:
+			<tbody>
+			  <tr>
+				<td>{{canteen_content.food_name}}</td>
+				<td>{{canteen_content.food_stock}}</td>
+				<td>{{canteen_content.food_sold}}</td>
+				<td>{{canteen_content.food_cost}}</td>
+				<td><a href = "/add_success/{{canteen_content.id}}"  class="waves-effect waves-light btn-small pink">Add</a></td>
+			  </tr>
+			  
+			</tbody>
+			%end
+		</table>
+	

@@ -66,7 +66,12 @@ def order_success(food_id):
     
     return data
 
-
+#plus_stock
+@route("/plus_stock")
+@view ("plus_stock")
+def plus_stock():
+    data = dict (contents_list = contents) 
+    return data   
 
 
 run(host='0.0.0.0', port=8080, reloader = True, debug = True)
