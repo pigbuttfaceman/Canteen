@@ -20,7 +20,7 @@ class canteen_content:
 #This is a list of times that contain the values for the items
 contents = [
     canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0, 3.50, 0 ),
-    canteen_content("Hot Dog and Chips", "hotdog.jpg", 12, 0, 4, 0 ),
+    canteen_content("Hot Dog and Fries", "hotdog.jpg", 12, 0, 4, 0 ),
     canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0, 8, 0)
 ]
 
