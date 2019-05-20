@@ -1,6 +1,9 @@
 from bottle import run, route, view, get, post, request, static_file
 from itertools import count
 
+sausage = 1
+sausage += 1
+print (sausage)
 
 #Funtion
 class canteen_content:
@@ -60,11 +63,12 @@ def order_success(food_id):
         if food.id == food_id:
             found_food = food
     data = dict (food = found_food)
-    found_food.food_stock = found_food.food_stock - 1  #These plus and minus to the sold and stock variables
-    found_food.food_sold = found_food.food_sold + 1
+    found_food.food_stock -= 1  #These plus and minus to the sold and stock variables
+    found_food.food_sold += 1
     found_food.food_cart = found_food.food_cart + found_food.food_cost
     
     return data
+
 
 #plus_stock
 @route("/plus_stock")
@@ -72,6 +76,31 @@ def order_success(food_id):
 def plus_stock():
     data = dict (contents_list = contents) 
     return data   
+
+
+#A success page that shows the user the add button has worked
+@route('/add_success/<food_id>')
+@view ('add_success')
+def order_success(food_id):
+    
+    food_id = int(food_id)
+    found_food = None
+    for food in contents:
+        if food.id == food_id:
+            found_food = food
+    data = dict (food = found_food)
+    found_food.food_stock += 1  
+    
+    return data
+
+
+#This is just a test at the moment
+@route("/user_input")
+@view ("user_input")
+def user_input():
+    pass
+
+
 
 
 run(host='0.0.0.0', port=8080, reloader = True, debug = True)
