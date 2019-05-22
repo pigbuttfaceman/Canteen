@@ -4,18 +4,18 @@
 	% include('shared/nav_bar.html')
 
 	<body class = "grey">
-	
+	<h5> How much you wanna stock up friend? </h5>
+	<form class="col s12" action = "/add_success"  method = "post">
         <div class="input-field col s6">
-          <input placeholder="###" id="inp_dob" name = "Amount" type="interger" class="validate">
-          <label for="inp_dob">Amount</label>
+          <input placeholder="###" id="inp_amount" name = "amount" type="interger" class="validate">
         </div>
       </div>
      
     
-       <button class="btn waves-effect waves-light center" type="submit" name="action">Submit
+       <button href = "/add_success" class="btn waves-effect waves-light center" type="submit" name="action">Submit
 		</button>
           </div>
         </div>
       </div>
     </form>
-  </div>
+ 

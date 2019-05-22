@@ -10,7 +10,7 @@ class canteen_content:
 
     _ids = count (0)
 
-    def __init__(self, name, image, stock, sold, cost, cart,):
+    def __init__(self, name, image, stock, sold, cost, cart, amount):
         self.id = next(self._ids)
         self.food_name = name
         self.food_image = image
@@ -18,13 +18,14 @@ class canteen_content:
         self.food_sold = sold
         self.food_cost = cost
         self.food_cart = cart
+        self.food_amount = amount
 
 
 #This is a list of times that contain the values for the items
 contents = [
-    canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0, 3.50, 0 ),
-    canteen_content("Hot Dog and Fries", "hotdog.jpg", 12, 0, 4, 0 ),
-    canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0, 8, 0)
+    canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0, 3.50, 0, 0 ),
+    canteen_content("Hot Dog and Fries", "hotdog.jpg", 12, 0, 4, 0, 0 ),
+    canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0, 8, 0, 0)
 ]
 
 
@@ -77,11 +78,21 @@ def plus_stock():
     data = dict (contents_list = contents) 
     return data   
 
+@route('/add_success')
+@view ('add_success')
+def add_success():
+    amount = request.forms.get('amount')
+    
+    new_amount = canteen_content(name, image, stock, sold, cost, cart, amount)
+    contents.append(new_amount)
+    return data
+    
+    
 
 #A success page that shows the user the add button has worked
-@route('/add_success/<food_id>')
-@view ('add_success')
-def order_success(food_id):
+@route('/filler/<food_id>')
+@view ('filler')
+def filler(food_id):
     
     food_id = int(food_id)
     found_food = None
