@@ -76,22 +76,29 @@ def plus_stock():
     return data   
 
 
-@route('/add_success', method = 'POST')
+@route('/add_success/<food_id>', method = 'POST')
 @view ('add_success')
-def add_success():
+def add_success(food_id):
+    data = dict (contents_list = contents)
     amount = request.forms.get('amount')
     
-    new_amount = canteen_content(name, image, stock, sold, cost, cart, amount)
-    contents.append(new_amount)
+    food_id = int(food_id)
+    found_food = None
+    for food in contents:
+        if food.id == food_id:
+            found_food = food
+    data = dict (food = found_food)
+    found_food.food_stock + amount
+    
     return data  
 
 
 
 #This is just a test at the moment
-@route("/user_input")
+@route("/user_input/<food_id>")
 @view ("user_input")
-def user_input():
-    return  
+def user_input(food_id):
+    pass
 
 
 
