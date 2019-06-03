@@ -18,7 +18,7 @@ class canteen_content:
         self.food_amount = amount
 
 
-#This is a list of times that contain the values for the items
+#This is a list that creates and contains the values for the items
 contents = [
     canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0, 3.50, 0, 0 ),
     canteen_content("Hot Dog and Fries", "hotdog.jpg", 12, 0, 4, 0, 0 ),
@@ -36,7 +36,7 @@ def index():
     pass
 
 
-#This is the ordering page where the user will choose the food items they wish to have.
+#This is the ordering page where the user will choose the food items they wish to order.
 @route("/order") 
 @view("order") 
 def order(): 
@@ -67,18 +67,18 @@ def order_success(food_id):
     return data
 
 
-#plus_stock
+#plus_stock This shows all the values of the items themselves (I.e stock, sold, cost and an add button)
 @route("/plus_stock")
 @view ("plus_stock")
 def plus_stock():
     data = dict (contents_list = contents) 
     return data   
 
-
+#This is a success page that takes the user inputted value and adds it to the stock value of the chosen food item
 @route('/add_success/<food_id>', method = 'POST')
 @view ('add_success')
 def add_success(food_id):
-    amount = request.forms.get('amount')
+    amount = request.forms.get('amount') #This grabs the users input 
     amount = int(amount)
     food_id = int(food_id)
     found_food = None
@@ -86,14 +86,15 @@ def add_success(food_id):
         if food.id == food_id:
             found_food = food
     data = dict (food = found_food)
-    found_food.food_stock += amount 
+    found_food.food_stock += amount #This is the code that adds the input to the stock value
     
     return data
  
 
 
 
-#This is just a test at the moment
+#This is a page that takes the ID of the food item and allows the user to input a new stock value to it
+#It then passes everthing to the add_success page where it will add the new stock value to the old stock value of that food item
 @route("/user_input/<food_id>")
 @view ("user_input")
 def user_input(food_id):
@@ -107,8 +108,21 @@ def user_input(food_id):
     return data  
 
 
+#stock This shows all the values of the items themselves
+@route("/stock")
+@view ("stock")
+def stock():
+    data = dict (contents_list = contents) #This defines contents_list
+    return data    
 
-#A success page that shows the user the add button has worked
+
+
+
+
+
+
+
+#This is spare code 
 @route('/filler/<food_id>')
 @view ('filler')
 def filler(food_id):
