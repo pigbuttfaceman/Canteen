@@ -116,6 +116,12 @@ def stock():
     return data    
 
 
+@route("/receipt")
+@view ("receipt")
+def receipt():
+    data = dict (contents_list = contents) #This defines contents_list
+    return data 
+
 
 
 
