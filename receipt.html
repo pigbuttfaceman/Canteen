@@ -5,10 +5,22 @@
 	
 
     <body class = "grey">
+	</body>
+	<div class="col s6 row center blue ">
+	<h1 class = "red">Receipt</h1>
+	% for canteen_content in contents_list:
+		<div class="col s6 row center blue ">
+		<h2 class="header black-text red ">{{canteen_content.food_name}}</h2>
+		<h5>Sold = {{canteen_content.food_sold}}</h5>
+		<h5>Cost = ${{canteen_content.food_cart}}</h5>
+		
+		</div>
+		
+		
+	%end
+		<h2>Total</h2>
+		<h5>Sold = {{canteen_content.food_sold}}</h5>
+		<h5>Cost = ${{canteen_content.food_cart}}</h5>
+		</div>
+		
 	
-	<div class="card horizontal black ">
-	<div class="card-stacked">
-	</div>
-						
-					
-						
