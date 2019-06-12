@@ -126,9 +126,18 @@ def receipt():
     return data 
 
 
+@route("/credit")
+@view ("credit")
+def credit():
+
+    pass
 
 
+@route("/thanks")
+@view ("thanks")
+def thanks():
 
+    pass
 
 
 #This is spare code 
