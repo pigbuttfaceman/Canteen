@@ -126,13 +126,15 @@ def receipt():
     return data 
 
 
-@route("/credit")
+#this is the creid card page
+@route("/credit") 
 @view ("credit")
 def credit():
 
     pass
 
 
+#This is the order success page
 @route("/thanks")
 @view ("thanks")
 def thanks():
@@ -140,20 +142,7 @@ def thanks():
     pass
 
 
-#This is spare code 
-@route('/filler/<food_id>')
-@view ('filler')
-def filler(food_id):
-    
-    food_id = int(food_id)
-    found_food = None
-    for food in contents:
-        if food.id == food_id:
-            found_food = food
-    data = dict (food = found_food)
-    found_food.food_stock += 1  
-    
-    return data
+
 
 
 
