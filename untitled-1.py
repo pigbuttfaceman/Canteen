@@ -47,7 +47,7 @@ def order():
 #This grabs the pictures from the images file
 @route('/picture/<filename>')
 def saved_picture (filename):
-    return static_file(filename, root='./images')
+    return static_file(filename, root='./images')#this finds the folder the images are in
 
 
 #This is the success page the user will see after clicking the order button
@@ -55,7 +55,7 @@ def saved_picture (filename):
 @view ('order_success')
 def order_success(food_id):
     
-    food_id = int(food_id)
+    food_id = int(food_id)#makes sure food_id is a number
     found_food = None
     for food in contents:
         if food.id == food_id:
@@ -73,6 +73,7 @@ def order_success(food_id):
 def plus_stock():
     data = dict (contents_list = contents) 
     return data   
+
 
 #This is a success page that takes the user inputted value and adds it to the stock value of the chosen food item
 @route('/add_success/<food_id>', method = 'POST')
@@ -105,7 +106,7 @@ def user_input(food_id):
         if food.id == food_id:
             found_food = food
     data = dict (food = found_food)    
-    return data  
+    return data  #returns data
 
 
 #stock This shows all the values of the items themselves
@@ -116,10 +117,27 @@ def stock():
     return data    
 
 
+#this is a receipt page that will display the amout of food sold in the total lunchtime
+@route("/receipt")
+@view ("receipt")
+def receipt():
+    data = dict (contents_list = contents) #This defines contents_list
+        
+    return data 
 
 
+@route("/credit")
+@view ("credit")
+def credit():
+
+    pass
 
 
+@route("/thanks")
+@view ("thanks")
+def thanks():
+
+    pass
 
 
 #This is spare code 

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	% include('shared/header.html')
+	% include('shared/nav_bar.html')
+
+	<body class = "white">
+	<h1 class = "Black center"> Please Enter your Credit Card Details Below </h1>
+	<h6 class = "Black center"> (Or Don't)</h6>
+	<div class = "row">
+	</div>
+	<div class = "row">
+	</div>
+	 <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Name on card" id="name" type="text" class="validate">
+          <label for="name">Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="date" placeholder="mm/yy" type="text" class="validate">
+          <label for="date">Expiration date</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="number" type="number" class="validate">
+          <label for="number">Card Number</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="input-field inline">
+            <input id="CVV" type="text" class="validate">
+            <label for="CVV">CVV</label>
+    
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+	<div class = "row">
+	</div>
+	<div class = "row">
+	</div>
+	<a href = "/thanks"  class="waves-effect waves-light btn-small pink container">Continue</a>
+	

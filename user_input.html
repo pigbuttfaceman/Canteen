@@ -8,7 +8,7 @@
 	<h5> How much you wanna stock up friend? </h5>
 	<form class="col s12" action = "/add_success/{{food.id}}"  method = "POST" >
         <div class="input-field col s6">
-          <input placeholder="  #Insert number here!#  " id="inp_amount" name = "amount" type="number" min = "1">
+          <input placeholder="  #Insert number here!#  " id="inp_amount" name = "amount" required type="number" min = "1">
         </div>
     
        <button class="btn waves-effect waves-light center" type="submit" name="action">Submit</button>

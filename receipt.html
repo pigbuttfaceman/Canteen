@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    %include('shared/header.html')
+    %include('shared/nav_bar.html')
+	
+
+    <body class = "grey">
+	</body>
+	<div class="col s6 row center blue ">
+	<h1 class = "red">Receipt</h1>
+	% for canteen_content in contents_list:
+		<div class="col s6 row center blue ">
+		<h2 class="header black-text red ">{{canteen_content.food_name}}</h2>
+		<h5>Sold = {{canteen_content.food_sold}}</h5>
+		<h5>Cost = ${{canteen_content.food_cart}}</h5>
+		
+		</div>
+		
+		
+	%end
+		<h2>Total</h2>
+	
+	%total_sold = 0
+	%total_cart = 0
+    
+    %for canteen_content in contents_list:
+        %total_sold = total_sold + canteen_content.food_sold
+		%total_cart = total_cart + canteen_content.food_cart
+	%end	
+			
+	<h5>Total Items = {{total_sold}}</h5>
+	<h5>Total Cost = ${{total_cart}}</h5>
+	</div>
+	
+	<a href = "/credit" class="waves-effect waves-light btn-large">Continue</a>
+		
+	
