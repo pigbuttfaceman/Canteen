@@ -1,11 +1,11 @@
-from bottle import run, route, view, get, post, request, static_file
+from bottle import run, route, view, get, post, request, static_file #This is importing methods from bottle
 from itertools import count
 
 
 #Funtion
 class canteen_content:
 
-    _ids = count (0)
+    _ids = count (0) 
 
     def __init__(self, name, image, stock, sold, cost, cart, amount):
         self.id = next(self._ids)
@@ -20,26 +20,26 @@ class canteen_content:
 
 #This is a list that creates and contains the values for the items
 contents = [
-    canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0, 3.50, 0, 0 ),
-    canteen_content("Hot Dog and Fries", "hotdog.jpg", 12, 0, 4, 0, 0 ),
-    canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0, 8, 0, 0)
+    canteen_content("Sushi Rolls", "sushirolls.jpg", 5, 0, 3.50, 0, 0 ), #This is part of a list
+    canteen_content("Hot Dog and Fries", "hotdog.jpg", 12, 0, 4, 0, 0 ),  #This is part of a list
+    canteen_content("Ham Sammie", "hamsammie.jpg", 4, 0, 8, 0, 0)  #This is part of a list
 ]
 
 
 
 
 #index page/the main front page
-@route("/")
+@route("/") #this is what my html code will use in links for buttons and tabs
 @view ("index")
-def index():
+def index(): #this is the index function
 
-    pass
+    pass #this will pass the information onwards
 
 
 #This is the ordering page where the user will choose the food items they wish to order.
-@route("/order") 
+@route("/order") #this is what my html code will use in links for buttons and tabs
 @view("order") 
-def order(): 
+def order(): #this is the order function
     data = dict (contents_list = contents) 
     return data 
 
@@ -51,7 +51,7 @@ def saved_picture (filename):
 
 
 #This is the success page the user will see after clicking the order button
-@route('/order_success/<food_id>')
+@route('/order_success/<food_id>')#this is what my html code will use in links for buttons and tabs, it will also take the selected food id with it.
 @view ('order_success')
 def order_success(food_id):
     
@@ -68,7 +68,7 @@ def order_success(food_id):
 
 
 #plus_stock This shows all the values of the items themselves (I.e stock, sold, cost and an add button)
-@route("/plus_stock")
+@route("/plus_stock")#this is what my html code will use in links for buttons and tabs
 @view ("plus_stock")
 def plus_stock():
     data = dict (contents_list = contents) 
@@ -110,7 +110,7 @@ def user_input(food_id):
 
 
 #stock This shows all the values of the items themselves
-@route("/stock")
+@route("/stock")#this is what my html code will use in links for buttons and tabs
 @view ("stock")
 def stock():
     data = dict (contents_list = contents) #This defines contents_list
@@ -118,7 +118,7 @@ def stock():
 
 
 #this is a receipt page that will display the amout of food sold in the total lunchtime
-@route("/receipt")
+@route("/receipt")#this is what my html code will use in links for buttons and tabs
 @view ("receipt")
 def receipt():
     data = dict (contents_list = contents) #This defines contents_list
@@ -127,7 +127,7 @@ def receipt():
 
 
 #this is the creid card page
-@route("/credit") 
+@route("/credit") #this is what my html code will use in links for buttons and tabs
 @view ("credit")
 def credit():
 
@@ -135,7 +135,7 @@ def credit():
 
 
 #This is the order success page
-@route("/thanks")
+@route("/thanks")#this is what my html code will use in links for buttons and tabs
 @view ("thanks")
 def thanks():
 
