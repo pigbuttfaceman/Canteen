@@ -9,7 +9,7 @@ class canteen_content:
 
     def __init__(self, name, image, stock, sold, cost, cart, amount):
         self.id = next(self._ids)
-        self.food_name = name
+        self.food_name = name #these create the item and then renames it, so it is easier to use
         self.food_image = image
         self.food_stock = stock
         self.food_sold = sold
@@ -40,13 +40,13 @@ def index(): #this is the index function
 @route("/order") #this is what my html code will use in links for buttons and tabs
 @view("order") 
 def order(): #this is the order function
-    data = dict (contents_list = contents) 
-    return data 
+    data = dict (contents_list = contents) #defines and renames the contents list named contents to contents_list
+    return data #returns the data
 
 
 #This grabs the pictures from the images file
 @route('/picture/<filename>')
-def saved_picture (filename):
+def saved_picture (filename): #this my picture function
     return static_file(filename, root='./images')#this finds the folder the images are in
 
 
@@ -56,14 +56,14 @@ def saved_picture (filename):
 def order_success(food_id):
     
     food_id = int(food_id)#makes sure food_id is a number
-    found_food = None
-    for food in contents:
+    found_food = None #sets found food to none
+    for food in contents: #for loop finding the individual food within the contents list
         if food.id == food_id:
             found_food = food
     data = dict (food = found_food)
-    found_food.food_stock -= 1  #These plus and minus to the sold and stock variables
-    found_food.food_sold += 1
-    found_food.food_cart = found_food.food_cart + found_food.food_cost
+    found_food.food_stock -= 1  #minus to the stock variables
+    found_food.food_sold += 1  #plus to the sold variables
+    found_food.food_cart = found_food.food_cart + found_food.food_cost #this calculates the total cost of individual food items sold
     return data
 
 
@@ -71,21 +71,21 @@ def order_success(food_id):
 @route("/plus_stock")#this is what my html code will use in links for buttons and tabs
 @view ("plus_stock")
 def plus_stock():
-    data = dict (contents_list = contents) 
-    return data   
+    data = dict (contents_list = contents) #this defines the list named contents to contents_list 
+    return data   #this will return the data to complete the loop
 
 
 #This is a success page that takes the user inputted value and adds it to the stock value of the chosen food item
-@route('/add_success/<food_id>', method = 'POST')
+@route('/add_success/<food_id>', method = 'POST') #grabs the food id and allows the page to use the post method
 @view ('add_success')
-def add_success(food_id):
-    amount = request.forms.get('amount') #This grabs the users input 
-    amount = int(amount)
-    food_id = int(food_id)
+def add_success(food_id): #takes the food id
+    amount = request.forms.get('amount') #This grabs the users input and sets amount to the inputted amount
+    amount = int(amount) #makes sure amount is a number
+    food_id = int(food_id) #food_id is a number
     found_food = None
-    for food in contents:
-        if food.id == food_id:
-            found_food = food
+    for food in contents: #for loop
+        if food.id == food_id: #if statement
+            found_food = food 
     data = dict (food = found_food)
     found_food.food_stock += amount #This is the code that adds the input to the stock value
     
@@ -114,32 +114,32 @@ def user_input(food_id):
 @view ("stock")
 def stock():
     data = dict (contents_list = contents) #This defines contents_list
-    return data    
+    return data    #returns data
 
 
 #this is a receipt page that will display the amout of food sold in the total lunchtime
 @route("/receipt")#this is what my html code will use in links for buttons and tabs
 @view ("receipt")
-def receipt():
+def receipt(): #receipt function
     data = dict (contents_list = contents) #This defines contents_list
         
-    return data 
+    return data #returns the data
 
 
 #this is the creid card page
 @route("/credit") #this is what my html code will use in links for buttons and tabs
 @view ("credit")
-def credit():
+def credit(): #this is the creit card page function
 
-    pass
+    pass #this just passes the information onwards
 
 
 #This is the order success page
 @route("/thanks")#this is what my html code will use in links for buttons and tabs
 @view ("thanks")
-def thanks():
+def thanks(): #this is the success thanks page function
 
-    pass
+    pass #this just passes the information onwards
 
 
 
