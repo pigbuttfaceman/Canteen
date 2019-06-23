@@ -58,7 +58,7 @@ def order_success(food_id):
     food_id = int(food_id)#makes sure food_id is a number
     found_food = None #sets found food to none
     for food in contents: #for loop finding the individual food within the contents list
-        if food.id == food_id:
+        if food.id == food_id: #this makes sure matches the food.id
             found_food = food
     data = dict (food = found_food)
     found_food.food_stock -= 1  #minus to the stock variables
@@ -126,7 +126,7 @@ def receipt(): #receipt function
     return data #returns the data
 
 
-#this is the creid card page
+#this is the credit card page
 @route("/credit") #this is what my html code will use in links for buttons and tabs
 @view ("credit")
 def credit(): #this is the creit card page function
@@ -134,7 +134,7 @@ def credit(): #this is the creit card page function
     pass #this just passes the information onwards
 
 
-#This is the order success page
+#This is another order success page
 @route("/thanks")#this is what my html code will use in links for buttons and tabs
 @view ("thanks")
 def thanks(): #this is the success thanks page function
