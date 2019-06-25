@@ -53,24 +53,24 @@ def saved_picture (filename): #this my picture function
 #This is the success page the user will see after clicking the order button
 @route('/order_success/<food_id>')#this is what my html code will use in links for buttons and tabs, it will also take the selected food id with it.
 @view ('order_success')
-def order_success(food_id):
+def order_success(food_id): #this the order success function it shows the user the order was successful
     
     food_id = int(food_id)#makes sure food_id is a number
     found_food = None #sets found food to none
     for food in contents: #for loop finding the individual food within the contents list
         if food.id == food_id: #this makes sure matches the food.id
-            found_food = food
-    data = dict (food = found_food)
+            found_food = food #sets found_food to food
+    data = dict (food = found_food) #this defines food as found food
     found_food.food_stock -= 1  #minus to the stock variables
     found_food.food_sold += 1  #plus to the sold variables
     found_food.food_cart = found_food.food_cart + found_food.food_cost #this calculates the total cost of individual food items sold
-    return data
+    return data #this returns the data from the html page
 
 
 #plus_stock This shows all the values of the items themselves (I.e stock, sold, cost and an add button)
 @route("/plus_stock")#this is what my html code will use in links for buttons and tabs
 @view ("plus_stock")
-def plus_stock():
+def plus_stock(): #this is the plus stock funtion is allows the user get to a userinput page to add to stock values of individual food items
     data = dict (contents_list = contents) #this defines the list named contents to contents_list 
     return data   #this will return the data to complete the loop
 
@@ -82,11 +82,11 @@ def add_success(food_id): #takes the food id
     amount = request.forms.get('amount') #This grabs the users input and sets amount to the inputted amount
     amount = int(amount) #makes sure amount is a number
     food_id = int(food_id) #food_id is a number
-    found_food = None
-    for food in contents: #for loop
-        if food.id == food_id: #if statement
-            found_food = food 
-    data = dict (food = found_food)
+    found_food = None  #sets found food to none
+    for food in contents: #for loop finding the individual food within the contents list
+        if food.id == food_id: #this makes sure matches the food.id
+            found_food = food #sets found_food to food
+    data = dict (food = found_food)#this defines food as found food
     found_food.food_stock += amount #This is the code that adds the input to the stock value
     
     return data
@@ -99,13 +99,13 @@ def add_success(food_id): #takes the food id
 @route("/user_input/<food_id>")
 @view ("user_input")
 def user_input(food_id):
-    data = dict (contents_list = contents)
-    food_id = int(food_id)
-    found_food = None
-    for food in contents:
-        if food.id == food_id:
-            found_food = food
-    data = dict (food = found_food)    
+    data = dict (contents_list = contents) #This defines contents_list
+    food_id = int(food_id) #makes sure food_id is a number
+    found_food = None  #sets found food to none
+    for food in contents:  #for loop finding the individual food within the contents list
+        if food.id == food_id:  #this makes sure matches the food.id
+            found_food = food  #sets found_food to food
+    data = dict (food = found_food) #this defines food as found food   
     return data  #returns data
 
 
